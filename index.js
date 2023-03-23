@@ -34,10 +34,10 @@ if (localStorage['version'] == undefined){
     });
 }
 
-if (localStorage['forcereload'] == undefined){
-    localStorage['forcereload'] = true;
-    updateAndReloadServiceWorker(null)
-}
+// if (localStorage['forcereload'] == undefined){
+//     localStorage['forcereload'] = true;
+//     updateAndReloadServiceWorker(null)
+// }
 
 // hide the "get the app" button if the user is on a PWA app
 if (window.matchMedia('(display-mode: standalone)').matches){
@@ -241,20 +241,20 @@ setInterval(() => {
     })
 }, 10*1000)// 10 seconds
 
-if ("serviceWorker" in navigator) {
-  window.addEventListener("load", function() {
-    if (navigator.serviceWorker.controller) {
-      console.log("Active service worker found, no need to register");
-    } else {
-        const registration = navigator.serviceWorker.register("/sw.js",
-            {scope: "/"}
-        );
+// if ("serviceWorker" in navigator) {
+//   window.addEventListener("load", function() {
+//     if (navigator.serviceWorker.controller) {
+//       console.log("Active service worker found, no need to register");
+//     } else {
+//         const registration = navigator.serviceWorker.register("/sw.js",
+//             {scope: "/"}
+//         );
     
-        registration.then(function(registration) {
-          console.log("ServiceWorker registration successful with scope: ", registration.scope);
-        }, function(err) {
-            console.log("ServiceWorker registration failed: ", err);
-        });
-    }
-  })
-}
+//         registration.then(function(registration) {
+//           console.log("ServiceWorker registration successful with scope: ", registration.scope);
+//         }, function(err) {
+//             console.log("ServiceWorker registration failed: ", err);
+//         });
+//     }
+//   })
+// }
